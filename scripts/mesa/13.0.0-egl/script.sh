@@ -5,7 +5,7 @@ LIB_VERSION=13.0.0
 MASON_NAME=mesa
 MASON_VERSION=${LIB_VERSION}-egl
 MASON_LIB_FILE=lib/libEGL.so
-MASON_PKGCONFIG_FILE="lib/pkgconfig/egl.pc lib/pkgconfig/gbm.pc lib/pkgconfig/dri.pc lib/pkgconfig/glesv2.pc"
+MASON_PKGCONFIG_FILE="lib/pkgconfig/egl.pc lib/pkgconfig/dri.pc lib/pkgconfig/glesv2.pc"
 
 . ${MASON_DIR}/mason.sh
 
@@ -33,9 +33,9 @@ function mason_compile {
         --disable-osmesa \
         --disable-gallium-osmesa \
         --disable-dri3 \
+        --disable-gbm \
         --enable-egl \
         --enable-dri \
-        --enable-gbm \
         --enable-opengl \
         --enable-gles1 \
         --enable-gles2 \
@@ -43,7 +43,7 @@ function mason_compile {
         --enable-texture-float \
         --enable-llvm-shared-libs \
         --enable-shared-glapi \
-        --with-egl-platforms=drm \
+        --with-egl-platforms=surfaceless \
         --with-dri-drivers=swrast \
         --with-gallium-drivers=swrast \
         --with-llvm-prefix=/usr/lib/llvm-3.8 \
